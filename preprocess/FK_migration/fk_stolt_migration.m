@@ -46,7 +46,8 @@ Kx_tem = 2 * pi / (num_traces_x * dx_trace) * ([1:floor(num_traces_x / 2), (num_
 Ky_tem = reshape(2 * pi / (num_b_scans * dy_trace) * ([1:floor(num_b_scans / 2), (num_b_scans - (floor(num_b_scans / 2) + 1:num_b_scans))]), [1, 1, num_b_scans]);
 Kz_tem = 2 * pi / z_range * (1:n_depth_slices);
 
-[x_grid, y_grid] = meshgrid(start_step:dy_trace:(num_b_scans-1)*dy_trace + start_step, start_step:dx_trace:(num_traces_x-1)*dx_trace + start_step);
+% Antenna grid: columns=bscans (spacing dx_trace), rows=traces (spacing dy_trace), match fk_jiasu
+[x_grid, y_grid] = meshgrid(start_step:dx_trace:(num_b_scans-1)*dx_trace + start_step, start_step:dy_trace:(num_traces_x-1)*dy_trace + start_step);
 [xs_grid, ys_grid] = meshgrid(dx:dx:x_range, dy:dy:y_range);
 
 % GPU precomputation
@@ -90,6 +91,6 @@ for depth_idx = 1:n_depth_slices
 end
 migration_volume = migration_volume / max(migration_volume(:));
 migration_volume(isnan(migration_volume)) = 0;
-migration_volume(migration_volume < 0.35) = 0;
+
 
 end
