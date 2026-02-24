@@ -12,7 +12,7 @@ clear
 %% =========================================================================
 
 %% Configuration (primary inputs)
-data_path = '/workspace/MY_SSW/SSW/p4/mvnet/baselines/krichof_t/data_example/GLZO_gan1_noise4000.mat';                              % e.g. '/path/to/your/data.mat'
+data_path = '';                              % e.g. '/path/to/your/data.mat'
 data_var_name = 'data_3d';                   % Variable name in .mat file
 
 % Propagation velocity in medium (m/s). Permittivity derived as epsilon_r = (c0/v)^2.
