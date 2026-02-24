@@ -48,8 +48,6 @@ Due to file size limits, the sample datasets and pre-trained model weights are h
 
 * **Google Drive**: `[ ]`
 
-Expected directory structure after downloading:
-
 
 ## 🚀 Usage Pipeline
 
